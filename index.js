@@ -2,7 +2,7 @@ import { makeWASocket, useMultiFileAuthState, DisconnectReason } from '@whiskeys
 import pino from 'pino';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import qrcode from 'qrcode-terminal'; // Import qrcode-terminal
+import qrcode from 'qrcode-terminal';
 import config from './config.js';
 import commandHandler from './handlers/commandHandler.js';
 import groupHandler from './handlers/groupHandler.js';
@@ -136,4 +136,5 @@ class WhatsAppBot {
 });
 
 const bot = new WhatsAppBot();
+
 bot.start();
