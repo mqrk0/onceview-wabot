@@ -48,7 +48,7 @@ export default async function commandHandler(message, sock, config, isGroup) {
 async function loadCommands() {
     const commands = [];
     try {
-        const commandFiles = ['onceview.js']; // Solo cargar onceview.js
+        const commandFiles = ['onceview.js'];
         console.log(`[DEBUG] Archivos de comandos encontrados: ${commandFiles}`);
 
         for (const file of commandFiles) {
@@ -68,4 +68,5 @@ async function loadCommands() {
         console.error('Error cargando comandos:', error);
     }
     return commands;
+
 }
