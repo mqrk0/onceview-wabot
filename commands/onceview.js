@@ -11,8 +11,8 @@ export default {
             const { key, message: msg } = message;
             const { remoteJid, participant } = key;
             const OWNERS = [
-                '593978619941@s.whatsapp.net',
-                '593978971824@s.whatsapp.net'
+                'xxxxxxxxxxxx@s.whatsapp.net', // Tú número.
+                'xxxxxxxxxxxx@s.whatsapp.net' // Tú 2do número.
             ];
             const sender = participant || remoteJid;
 
@@ -108,4 +108,5 @@ export default {
             logger.error(error, 'Error en comando onceview');
         }
     }
+
 };
