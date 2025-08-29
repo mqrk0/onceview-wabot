@@ -4,14 +4,14 @@ export default {
     session: {
         name: 'session',
         path: join(process.cwd(), 'session'),
-        saveInterval: 60_000 // 1 minuto
+        saveInterval: 60_000
     },
     bot: {
-        prefix: '!', // Prefijo para chats privados
-        groupPrefix: '?', // Prefijo para grupos (no se usará para comandos)
-        owner: '593978619941@s.whatsapp.net', // Dueño principal
+        prefix: '!',
+        groupPrefix: '?',
+        owner: 'xxxxxxxxxxxx@s.whatsapp.net',
         admins: [
-            '593978619941@s.whatsapp.net'
+            'xxxxxxxxxxxx@s.whatsapp.net'
         ],
         blockedUsers: [] // Lista de usuarios bloqueados
     },
@@ -27,4 +27,5 @@ export default {
         handlers: join(process.cwd(), 'handlers'),
         database: join(process.cwd(), 'database.json')
     }
+
 };
