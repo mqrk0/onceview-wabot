@@ -1,9 +1,9 @@
 # ONCEVIEW - Bot de WhatsApp
 
-ONCEVIEW es un bot de WhatsApp desarrollado en Node.js con la librería `@whiskeysockets/baileys`. Su función principal es extraer mensajes de tipo "view-once" (imágenes, videos o documentos) y enviarlos a los dueños configurados, con soporte para chats privados y grupales. Es modular, ligero y fácil de personalizar.
+ONCEVIEW es un bot de WhatsApp desarrollado en Node.js con la librería `@whiskeysockets/baileys`. Su función principal es extraer mensajes de tipo "view-once" (imágeneso videos) y enviarlos a los dueños configurados, con soporte para chats privados y grupales. Es modular, ligero y fácil de personalizar.
 
 ## Características
-- **Extracción de mensajes view-once**: Descarga y envía imágenes, videos o documentos de mensajes "view-once" a los dueños.
+- **Extracción de mensajes view-once**: Descarga y envía imágenes o videos de mensajes "view-once" a los dueños.
 - **Comandos con prefijos**: Usa `!` en chats privados y `?` en grupos.
 - **Restricciones en grupos**: Solo administradores pueden usar el comando `onceview`, limitado a una ejecución por grupo.
 - **Reconexión automática**: Maneja desconexiones con reintentos automáticos.
@@ -72,7 +72,7 @@ onceview-wabot/
 - **Ejemplo**:
   1. Un usuario envía un mensaje view-once en un grupo.
   2. Un administrador responde con `?onceview`.
-  3. El bot envía el medio (imagen, video o documento) a los dueños configurados.
+  3. El bot envía el medio (imagen o video) a los dueños configurados.
 
 ## Configuración
 El archivo `config.js` permite personalizar:
