@@ -86,7 +86,6 @@ El archivo `config.js` permite personalizar:
 - **features**:
   - `silentMode`: Activa/desactiva modo silencioso.
   - `autoRead`: Activa/desactiva lectura automática.
-  - `limits.stickerSize`: Límite de tamaño para stickers.
 - **paths**: Rutas para comandos, manejadores y base de datos.
 
 ## Contribuir
