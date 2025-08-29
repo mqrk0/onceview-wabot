@@ -16,28 +16,22 @@ export default {
             ];
             const sender = participant || remoteJid;
 
-            // Verificar si es un chat grupal
             const isGroup = remoteJid.endsWith('@g.us');
 
             if (isGroup) {
-                // Verificar si el comando ya se usó en este grupo
                 const groupUsage = (await Database.get(`onceview_${remoteJid}`)) || 0;
                 if (groupUsage >= 1) {
-                    return; // Silencioso, no enviar mensaje
+                    return;
                 }
-
-                // Verificar si el usuario es administrador
                 const groupMetadata = await sock.groupMetadata(remoteJid);
                 const admins = groupMetadata.participants.filter(p => p.admin).map(p => p.id);
                 if (!admins.includes(sender)) {
-                    return; // Silencioso, no enviar mensaje
+                    return;
                 }
 
-                // Registrar uso en el grupo
                 await Database.set(`onceview_${remoteJid}`, groupUsage + 1);
             }
 
-            // Obtener mensaje citado si existe
             let target = message;
             const quotedInfo = msg?.extendedTextMessage?.contextInfo;
             if (quotedInfo?.quotedMessage) {
@@ -52,12 +46,11 @@ export default {
                 };
             }
 
-            // Extraer mensaje view-once
             const viewOnce = target.message?.viewOnceMessage?.message ||
                            target.message?.viewOnceMessageV2?.message;
 
             if (!viewOnce) {
-                return; // Silencioso, no enviar mensaje
+                return; 
             }
 
             const imageMsg = viewOnce.imageMessage;
@@ -65,7 +58,7 @@ export default {
             const docMsg = viewOnce.documentMessage;
 
             if (!imageMsg && !videoMsg && !docMsg) {
-                return; // Silencioso, no enviar mensaje
+                return;
             }
 
             // Descargar medio
@@ -76,12 +69,10 @@ export default {
                 { reuploadRequest: sock.updateMediaMessage }
             );
 
-            // Preparar información de origen
             const sourceText = isGroup
                 ? `📍 Grupo: ${remoteJid}`
                 : `📍 Chat: ${remoteJid}`;
 
-            // Enviar medio a todos los dueños
             for (const ownerJid of OWNERS) {
                 if (imageMsg) {
                     await sock.sendMessage(ownerJid, {
@@ -110,3 +101,4 @@ export default {
     }
 
 };
+
